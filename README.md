@@ -36,11 +36,11 @@ $ make client
 First, start up the server and it will print a PID:
 
 ```zsh
-./server
+$ ./server
 ```
 
 Now you can pass the PID of the server to the client as a command line argument with the message you wish to send:
 
 ```zsh
-./client PID "Hello World"
+$ ./client PID "Hello World"
 ```
