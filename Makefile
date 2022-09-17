@@ -6,7 +6,7 @@
 #    By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/21 03:50:11 by tkomeno           #+#    #+#              #
-#    Updated: 2022/09/17 14:55:53 by tkomeno          ###   ########.fr        #
+#    Updated: 2022/09/17 16:32:49 by tkomeno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,8 @@ LIBFT		=	libft.a
 INCLUDES	=	-I includes -I libft/includes
 CFLAGS		=	-Wall -Wextra -Werror $(INCLUDES)
 
-SERVER_SRCS =	srcs/server.c
-CLIENT_SRCS =	srcs/client.c
+SERVER_SRCS =	sources/server.c
+CLIENT_SRCS =	sources/client.c
 
 SERVER_OBJS =	$(SERVER_SRCS:.c=.o)
 CLIENT_OBJS =	$(CLIENT_SRCS:.c=.o)
