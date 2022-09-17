@@ -15,6 +15,12 @@ First, clone this repository and `cd` into it:
 $ git clone https://github.com/riceset/minitalk; cd minitalk
 ```
 
+As this project uses the `libft` you will have to clone it on the root of the repository as well:
+
+```zsh
+$ git clone https://github.com/riceset/libft
+```
+
 Compile the executable files with:
 
 ```zsh
