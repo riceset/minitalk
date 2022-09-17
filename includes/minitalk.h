@@ -6,7 +6,7 @@
 /*   By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/20 06:19:17 by tkomeno           #+#    #+#             */
-/*   Updated: 2022/08/21 05:00:27 by tkomeno          ###   ########.fr       */
+/*   Updated: 2022/09/17 14:50:12 by tkomeno          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@
 # include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
+
+# include "libft.h"
 
 int			ft_atoi(const char *str);
 size_t		ft_strlen(const char *s);
