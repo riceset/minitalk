@@ -6,7 +6,7 @@
 #    By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/21 03:50:11 by tkomeno           #+#    #+#              #
-#    Updated: 2022/09/17 14:51:26 by tkomeno          ###   ########.fr        #
+#    Updated: 2022/09/17 14:55:53 by tkomeno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,17 +25,18 @@ all: $(NAME)
 
 $(NAME): $(LIBFT) server client
 
-server: $(SERVER_OBJS)
+server: $(SERVER_OBJS) $(LIBFT)
 	$(CC) $(SERVER_OBJS) -o server -L./libft -lft
 
-client: $(CLIENT_OBJS)
+client: $(CLIENT_OBJS) $(LIBFT)
 	$(CC) $(CLIENT_OBJS) -o client -L./libft -lft
 
 clean:
 	$(RM) $(SERVER_OBJS) $(CLIENT_OBJS)
 	$(MAKE) clean -C ./libft
 
-fclean: clean
+fclean:
+	$(RM) $(SERVER_OBJS) $(CLIENT_OBJS)
 	$(RM) server client
 	$(MAKE) fclean -C ./libft
 
