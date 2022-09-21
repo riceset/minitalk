@@ -6,43 +6,47 @@
 #    By: tkomeno <tkomeno@student.42tokyo.jp>       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/08/21 03:50:11 by tkomeno           #+#    #+#              #
-#    Updated: 2022/09/17 16:32:49 by tkomeno          ###   ########.fr        #
+#    Updated: 2022/09/21 15:37:11 by tkomeno          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		=	minitalk
-LIBFT		=	libft.a
-INCLUDES	=	-I includes -I libft/includes
+LIBFT_PATH 	= 	./libft
+LIBFT		=	$(LIBFT_PATH)/libft.a
+INCLUDES	=	-I ./includes -I $(LIBFT_PATH)/includes
 CFLAGS		=	-Wall -Wextra -Werror $(INCLUDES)
 
 SERVER_SRCS =	sources/server.c
 CLIENT_SRCS =	sources/client.c
 
-SERVER_OBJS =	$(SERVER_SRCS:.c=.o)
-CLIENT_OBJS =	$(CLIENT_SRCS:.c=.o)
+SERVER_OBJS = 	$(SERVER_SRCS:.c=.o)
+CLIENT_OBJS = 	$(CLIENT_SRCS:.c=.o)
+
+SERVER 		= 	server
+CLIENT 		= 	client
 
 all: $(NAME)
 
-$(NAME): $(LIBFT) server client
+$(NAME): $(SERVER) $(CLIENT)
 
-server: $(SERVER_OBJS) $(LIBFT)
-	$(CC) $(SERVER_OBJS) -o server -L./libft -lft
+$(SERVER): $(SERVER_OBJS) $(LIBFT)
+	$(CC) $< -o $@ -L$(LIBFT_PATH) -lft
 
-client: $(CLIENT_OBJS) $(LIBFT)
-	$(CC) $(CLIENT_OBJS) -o client -L./libft -lft
+$(CLIENT): $(CLIENT_OBJS) $(LIBFT)
+	$(CC) $< -o $@ -L$(LIBFT_PATH) -lft
 
 clean:
 	$(RM) $(SERVER_OBJS) $(CLIENT_OBJS)
-	$(MAKE) clean -C ./libft
+	$(MAKE) clean -C $(LIBFT_PATH)
 
 fclean:
 	$(RM) $(SERVER_OBJS) $(CLIENT_OBJS)
-	$(RM) server client
-	$(MAKE) fclean -C ./libft
+	$(RM) $(SERVER) $(CLIENT)
+	$(MAKE) fclean -C $(LIBFT_PATH)
 
 re: fclean all
 
 $(LIBFT):
-	$(MAKE) -C ./libft
+	$(MAKE) -C $(LIBFT_PATH)
 
-.PHONY: all server client clean fclean re
+.PHONY: all clean fclean re
