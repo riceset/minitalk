@@ -2,10 +2,14 @@
 	minitalk
 </h1>
 
+<p align="center">
+  <img src="https://github.com/riceset/riceset/blob/main/42_badges/minitalke.png" alt="Push_swap 42 project badge"/>
+</p>
+
 ## Summary
 
-> The purpose of this project is to code a small data exchange program
-> using UNIX signals.
+> <i>The purpose of this project is to code a small data exchange program</i>
+> <i>using UNIX signals.</i>
 
 ## Getting started
 
